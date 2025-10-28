@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React</title>
+    <title>Counter</title>
     <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -11,23 +11,26 @@
     <div id="app"></div>
 
     <script type="text/babel">
-        function Hello(props) {
-            return (
-                <h1>Hello!, {props.name}!</h1>
-            );
-        }
+        
 
+       
         function App() {
+
+             const [count,setCount] = React.useState(0);
+            
+            function updateCount() {
+                setCount(count + 1);
+             }
+
             return (
                 <div>
-                    <Hello name="Harry" />
-                    <Hello name="Ron" />
-                    <Hello name="Hermione" />
+                    <div>{count}</div>
+                    <button onClick={updateCount}>Count</button>
                 </div>
             );
         }
 
-        // ต้องมีบรรทัดนี้
+    
         ReactDOM.render(<App />, document.getElementById('app'));
     </script>
 </body>
